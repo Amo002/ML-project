@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>{{ model }} Results</title>
+    <style>
+        body {
+            font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+            font-size: large;
+            background-color: #0E2954;
+            background-repeat: no-repeat;
+            height: 100vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            color: #84A7A1;
+        }
+
+
+
+        p {
+            color: black;
+        }
+
+        .card {
+            width: 20%;
+            padding: 20px;
+            box-shadow: 0px 0px 15px rgba(0, 0, 0, 0.2);
+            background-color: #1F6E8C;
+
+
+        }
+
+        .card a {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        .button-link {
+            font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+            font-weight: bolder;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            padding: 10px 15px;
+            border-radius: 4px;
+            text-decoration: none;
+            transition: background-color 0.3s;
+            color: #84A7A1;
+            background-color: #0E2954;
+
+        }
+
+        .button-link:hover {
+            background-color: #2E8A99;
+        }
+    </style>
+</head>
+
+<body>
+    <h2>Results for {{ model }}</h2>
+    <div class="card">
+
+        <p><strong>Accuracy:</strong> {{ accuracy }}</p>
+        <p><strong>Precision:</strong> {{ precision }}</p>
+        <p><strong>Goodness Of Fit:</strong> {{ r2 }}</p>
+        <br>
+        <!-- Updated this line -->
+        <a href="{% url 'select_model' %}" class="button-link">Back to model selection</a>
+    </div>
+</body>
+
+</html>
