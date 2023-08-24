@@ -50,4 +50,3 @@ Feel free to fork the repository and submit pull requests. For major changes, pl
 
 License
 This project is open-source and available under the MIT License.
-
