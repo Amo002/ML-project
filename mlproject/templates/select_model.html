@@ -5,73 +5,209 @@
     <meta charset="UTF-8">
     <title>Select a Model</title>
     <style>
+        @keyframes slideUp {
+            from {
+                opacity: 0;
+                transform: translateY(500px);
+            }
+
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
         body {
             font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
             font-size: large;
-            background-color: #0E2954;
+            background-color: #222831;
             background-repeat: no-repeat;
             height: 100vh;
             display: flex;
             flex-direction: column;
             justify-content: center;
             align-items: center;
-            color: #84A7A1;
-        }
-
-
-
-        p {
             color: black;
         }
 
+        .card-container {
+            display: flex;
+            justify-content: space-around;
+            width: 80%;
+            gap: 20px;
+            color: #EEEEEE;
+        }
+
         .card {
+            opacity: 0;
+            animation-name: slideUp;
+            animation-duration: 0.5s;
+            animation-fill-mode: forwards;
             width: 20%;
-            padding: 20px;
-            box-shadow: 0px 0px 15px rgba(0, 0, 0, 0.2);
-            background-color: #1F6E8C;
+            height: 65vh;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            color: EEEEEE;
+        }
 
 
+        .card:nth-child(1) {
+            animation-delay: 0;
+        }
+
+        .card:nth-child(2) {
+            animation-delay: 0.2s;
+        }
+
+        .card:nth-child(3) {
+            animation-delay: 0.3s;
+        }
+
+        .card:nth-child(4) {
+            animation-delay: 0.5s;
         }
 
         .card a {
             display: flex;
             flex-direction: column;
             align-items: center;
-        }
-
-        .button-link {
             font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
             font-weight: bolder;
-            display: flex;
-            flex-direction: column;
-            justify-content: center;
-            align-items: center;
-            padding: 10px 15px;
             border-radius: 4px;
             text-decoration: none;
             transition: background-color 0.3s;
-            color: #84A7A1;
-            background-color: #0E2954;
-            margin-bottom: 10px;
+            color: #EEEEEE;
+            opacity: 0;
+            animation-name: slideUp;
+            animation-duration: 0.5s;
+            animation-fill-mode: forwards;
+            width: 100%;
+            height: 100%;
+            padding: 20px;
+            box-shadow: 0px 0px 15px rgba(0, 0, 0, 0.2);
+            background-color: #393E46;
+            justify-content: center;
+
 
         }
 
-        .button-link:hover {
-            background-color: #2E8A99;
+
+        .card a:hover {
+            background-color: #00ADB5;
+            color: #EEEEEE;
+        }
+
+        .title-word {
+            animation: color-animation 4s linear infinite;
+        }
+
+        .title-word-1 {
+            --color-1: #DF8453;
+            --color-2: #3D8DAE;
+            --color-3: #E4A9A8;
+        }
+
+        .title-word-2 {
+            --color-1: #DBAD4A;
+            --color-2: #ACCFCB;
+            --color-3: #17494D;
+        }
+
+        .title-word-3 {
+            --color-1: #ACCFCB;
+            --color-2: #E4A9A8;
+            --color-3: #ACCFCB;
+        }
+
+        .title-word-4 {
+            --color-1: #3D8DAE;
+            --color-2: #DF8453;
+            --color-3: #E4A9A8;
+        }
+
+        .title-word-5 {
+            --color-1: #17494D;
+            --color-2: #DF8453;
+            --color-3: #E4A9A8;
+        }
+
+        @keyframes color-animation {
+            0% {
+                color: var(--color-1)
+            }
+
+            32% {
+                color: var(--color-1)
+            }
+
+            33% {
+                color: var(--color-2)
+            }
+
+            65% {
+                color: var(--color-2)
+            }
+
+            66% {
+                color: var(--color-3)
+            }
+
+            99% {
+                color: var(--color-3)
+            }
+
+            100% {
+                color: var(--color-1)
+            }
+        }
+
+        /* Here are just some visual styles. 🖌 */
+
+        .container {
+            display: grid;
+            place-items: center;
+            text-align: center;
+        }
+
+        .title {
+            font-family: "Montserrat", sans-serif;
+            font-weight: 800;
+            font-size: 2.5vw;
+            text-transform: uppercase;
         }
     </style>
 </head>
 
 <body>
-    <h2>Select a Model to Display Results</h2>
-    <div class="card">
 
-        <a href="{% url 'display_results' 'Support Vector Machine' %}" class="button-link">Support Vector
-            Machine</a></li>
-        <a href="{% url 'display_results' 'Naive Bayes' %}" class="button-link">Naive Bayes</a>
-        <a href="{% url 'display_results' 'Decision Tree' %}" class="button-link">Decision Tree</a>
-        <a href="{% url 'display_results' 'Random Forest' %}" class="button-link">Random Forest</a>
 
+    <div class="container">
+        <h2 class="title">
+            <span class="title-word title-word-1">Select</span>
+            <span class="title-word title-word-2">Model</span>
+            <span class="title-word title-word-3">To</span>
+            <span class="title-word title-word-4">Display</span>
+            <span class="title-word title-word-5">Result</span>
+        </h2>
+    </div>
+
+    <div class="card-container">
+        <div class="card">
+            <a href="{% url 'display_results' 'Support Vector Machine' %}" class="card">
+                Support Vector Machine
+            </a>
+        </div>
+        <div class="card">
+            <a href="{% url 'display_results' 'Naive Bayes' %}" class="card">Naive Bayes</a>
+        </div>
+        <div class="card">
+            <a href="{% url 'display_results' 'Decision Tree' %}" class="card">Decision Tree</a>
+        </div>
+        <div class="card">
+            <a href="{% url 'display_results' 'Random Forest' %}" class="card">Random Forest</a>
+        </div>
     </div>
 </body>
 
