@@ -1,52 +1,46 @@
-Django ML Project
-Description
-This Django project is designed to predict diamond prices using various machine learning models. The project uses the diamonds.csv dataset and implements four different models: Support Vector Machine, Naive Bayes, Decision Tree, and Random Forest. The results of the predictions are displayed on a web interface, allowing users to select a model and view its performance metrics.
+# MLP Django App
 
-Features
-Data Loading and Preprocessing: The dataset is loaded and preprocessed using pandas and scikit-learn. Features are one-hot encoded, and the data is split into training and testing sets.
+The `mlp` Django app is designed for training and predicting diamond prices based on their attributes using various machine learning models. This app provides a UI for selecting a prediction model from a set of models, and then displaying the performance metrics of the chosen model on the test dataset.
 
-Machine Learning Models: The project implements four models:
+## Features
+- Load diamond data from a CSV file.
+- Preprocess the data to transform text features into numeric format using OneHotEncoding.
+- Train various models on the dataset, including:
+  - Support Vector Machine (SVM)
+  - Naive Bayes (GaussianNB)
+  - Decision Tree
+  - Random Forest
+- Display model performance metrics such as accuracy, precision, and R-squared value.
 
-Support Vector Machine
-Naive Bayes
-Decision Tree
-Random Forest
-Web Interface: The project provides a web interface where users can:
+## Structure
+- **views.py**: Contains the core logic for data processing, training the models, and rendering views.
+- **urls.py**: Handles the routing for the application.
+- **templates**: Houses the HTML templates (`model_results.html` and `select_model.html`) for rendering the views.
 
-Select a machine learning model
-View the results, including accuracy, precision, and R^2 score
-Installation
-Clone the repository:
+## Usage
 
-bash
-Copy code
-git clone https://github.com/AmoAlberqdar/ML-project.git
-Navigate to the project directory:
+1. **Homepage**: Open the homepage which will lead to the model selection page.
+2. **Model Selection**: Select a prediction method from the given models.
+3. **Results**: After selecting a model, you will be presented with its performance metrics.
 
-bash
-Copy code
-cd ML-project
-Install the required packages:
+## Setup
+1. Ensure you have Django installed.
+2. Navigate to the main directory `mlp`.
+3. Run the command `python manage.py runserver` to start the server.
+4. Open a web browser and go to `http://localhost:8000/` to access the app.
 
-Copy code
-pip install django scikit-learn pandas numpy
-Run the Django development server:
+## Dependencies
+- Django
+- scikit-learn
+- pandas
+- numpy
 
-Copy code
-python manage.py runserver
-Open your browser and navigate to http://127.0.0.1:8000/ to access the web interface.
+## Notes
+- The dataset is loaded from the path `C:\Users\Amo\Desktop\mlp\diamonds.csv`. Make sure the file exists or update the path accordingly.
+- For best performance and more accurate predictions, consider using a larger dataset or tweaking the model parameters.
 
-Usage
-On the homepage, click on the link to select a model.
-Choose a machine learning model to view its results.
-The results page will display the performance metrics for the selected model.
-Dependencies
-Django
-scikit-learn
-pandas
-numpy
-Contribution
-Feel free to fork the repository and submit pull requests. For major changes, please open an issue first to discuss the proposed changes.
+## Contribution
+Feel free to contribute to this project by creating a pull request or raising an issue for any bugs or enhancements.
 
-License
-This project is open-source and available under the MIT License.
+## License
+This project is licensed under the MIT License.
